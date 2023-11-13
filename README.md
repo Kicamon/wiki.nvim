@@ -1,2 +1,2 @@
 # wiki.nvim
-a nvim wiki plugin
+nvim插件制作教程，相关视频：
