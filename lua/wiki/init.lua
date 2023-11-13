@@ -40,7 +40,7 @@ local function setup(opt)
     wiki_file = '<cr>',
   }, opt or {})
   vim.keymap.set('n', wiki.wiki_open, Open_Wiki, {})
-  vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.md",
     callback = function()
       vim.keymap.set({ 'n', 'v' }, wiki.wiki_file, Create_Open, {})
