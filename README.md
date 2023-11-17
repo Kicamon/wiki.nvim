@@ -1,7 +1,7 @@
 # wiki.nvim
 A blazing fast and minimal less than 60 lines. neovim wiki plugin like [vimwiki](https://github.com/vimwiki/vimwiki).
 
-#### install
+### install
 ```lua
 {
     "Kicamon/wiki.nvim",
@@ -13,7 +13,7 @@ A blazing fast and minimal less than 60 lines. neovim wiki plugin like [vimwiki]
 }
 ```
 
-#### end
+### end
 
 If you are interested in the production process of this plug-in and you are familiar with Chinese, you can watch the video at the link below
 
