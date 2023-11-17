@@ -6,7 +6,8 @@ local function Open_Wiki()
     vim.cmd("silent !mkdir -p " .. path)
     vim.cmd("silent !touch " .. path .. 'index.md')
   end
-  vim.cmd("e " .. path .. "index.md")
+  local open = vim.api.nvim_buf_get_name(0) == '' and 'e ' or 'tabe '
+  vim.cmd(open .. path .. "index.md")
 end
 
 local function Create_Open()
@@ -19,14 +20,15 @@ local function Create_Open()
       local path    = string.match(line, pattern)
       vim.cmd(":tabe " .. path)
     elseif node:type() == 'inline' then
-      local s_l, s_r = vim.fn.getpos('v')[2], vim.fn.getpos('v')[3]
-      local e_l, e_r = vim.fn.getpos('.')[2], vim.fn.getpos('.')[3]
-      local file_name = vim.fn.getline(s_l, e_l)
-      file_name[1] = string.sub(file_name[1], s_r)
-      file_name[#file_name] = string.sub(file_name[#file_name], 1, e_r)
-      local file_text = table.concat(file_name, "")
-      local file_link = string.gsub(file_text, " ", "_") .. ".md"
-      vim.api.nvim_input('c' .. '[' .. file_text .. '](./' .. file_link .. ')<esc>:tabe ' .. file_link .. '<CR>')
+      local ln, tl, tr = vim.fn.line('.'), vim.fn.getpos('v')[3], vim.fn.getpos('.')[3]
+      local line = vim.fn.getline(ln)
+      local file_name = string.sub(line, tl, tr)
+      local fine_link = './' .. string.gsub(file_name, " ", "_") .. '.md'
+      local line_front = tl == 1 and '' or string.sub(line, 1, tl - 1)
+      local line_end = tr == #line and '' or string.sub(line, tr + 1)
+      local line_mid = '[' .. file_name .. '](' .. fine_link .. ')'
+      vim.fn.setline(ln, line_front .. line_mid .. line_end)
+      vim.api.nvim_input('<ESC>')
     end
   else
     return

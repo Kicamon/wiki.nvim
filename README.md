@@ -1,15 +1,20 @@
 # wiki.nvim
-#### nvim插件制作教程，相关视频：https://www.bilibili.com/video/BV1Qb4y1g7fU/
+A blazing fast and minimal less than 60 lines. neovim wiki plugin like [vimwiki](https://github.com/vimwiki/vimwiki).
 
+#### install
 ```lua
 {
     "Kicamon/wiki.nvim",
     require("wiki").setup({
-        path = "~/wiki/", -- wiki路径
-        wiki_open = "<leader>ww", -- 打开wiki
-        wiki_file = "<cr>", -- 打开或者创建文件
+        path = "~/wiki/", -- wiki dire
+        wiki_open = "<leader>ww", -- open wiki index
+        wiki_file = "<cr>", -- create or open a file
     })
 }
 ```
 
-> 希望可以帮到想要写插件的萌新捏，大家一起为nvim社区做贡献！
+#### end
+
+If you are interested in the production process of this plug-in and you are familiar with Chinese, you can watch the video at the link below
+
+nvim插件制作教程，相关视频：https://www.bilibili.com/video/BV1Qb4y1g7fU/
