@@ -15,6 +15,8 @@ A blazing fast and minimal less than 60 lines. neovim wiki plugin like [vimwiki]
 
 ### end
 
-If you are interested in the production process of this plug-in and you are familiar with Chinese, you can watch the video at the link below
+If you are interested in the production process of this plugin and good at Chinese, you can watch the video at the link below
 
 nvim插件制作教程，相关视频：https://www.bilibili.com/video/BV1Qb4y1g7fU/
+
+### License MIT
